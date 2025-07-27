@@ -4,12 +4,8 @@ site_author: osuNoLimits Team
 site_url: https://your-site-url.com
 
 nav:
-  - Getting Started:
-    - Installation: index.md
-    - Installation: index.md
-    - Installation: index.md
-  - Development:
-    - Extending shiina: plugins.md
+  - Installation: index.md
+  - Extending shiina: plugins.md
 
 repo_url: https://github.com/osu-NoLimits/wiki/
 repo_name: osu-NoLimits/wiki

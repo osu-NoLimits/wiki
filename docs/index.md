@@ -355,7 +355,7 @@ make run
 
 !!! tip "Development vs Production"
     - For **development**: Use `make run` for easier debugging
-    - For **production**: Consider using `make run-detached` to run in background
+    - For **production**: Consider using `make run-bg` or `screen -S bancho make run` to run in background
 
 ### :material-shield-account: Autoban Configuration
 
