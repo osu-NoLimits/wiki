@@ -1,1 +1,8 @@
-site_name: My Docs
+site_name: osuNoLimits Dev Wiki
+
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust
