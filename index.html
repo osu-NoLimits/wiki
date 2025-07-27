@@ -12,7 +12,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Home";
+        var mkdocs_page_name = "Installation";
         var mkdocs_page_input_path = "index.md";
         var mkdocs_page_url = null;
       </script>
@@ -42,12 +42,8 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
-    </li>
     </ul>
                 </li>
               </ul>
@@ -69,7 +65,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Home</li>
+      <li class="breadcrumb-item active">Installation</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/osu-NoLimits/wiki/blob/main/docs/index.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -79,21 +75,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+                <p><a href="https://discord.gg/Dr79DU9kbD"><img alt="Discord" src="https://dcbadge.limes.pink/api/server/Dr79DU9kbD" /></a></p>
+<h2 id="post-setup">Post setup</h2>
+<p>Create following subdomains and make them point to your server, adding <a href="https://www.cloudflare.com/">Cloudflare</a> to your domain is
+recommended cause of the Proxy that <strong>protects your IP</strong>.</p>
+<p><img alt="Subdomains" src="img/domains.png" /></p>
+<p>Do not forget the main domain <code>(example: osunolimits.dev)</code> which can be added with an <code>@</code> in Cloudflare. <em>isn't listed in image</em></p>
+<p>You can choose if you use flexible or strict SSL Encryption but you will need a certificate to connect to the server.
+A good tutotial is here <a href="https://github.com/osuAkatsuki/bancho.py/wiki/Post-setup">bancho.py wiki</a></p>
+<p><code>NOTE: It is recommended for the next step to create a fork with GitHub to get updates.</code></p>
+<h2 id="installing-banchopy-ex">Installing bancho.py-ex</h2>
+<ol>
+<li>Clone the repository (use your own fork if possible)
+<pre class="highlight"><code>git clone https://github.com/osu-NoLimits/bancho.py-ex.git
+cd bancho.py-ex</code></pre></li>
+</ol>
+<h3 id="installing-docker">Installing docker</h3>
+<details class="note">
+<summary>Ubuntu 22.04 &amp; 22.02</summary>
+<ol>
+<li>Remove conflicting packages
+<pre class="highlight"><code>for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done</code></pre></li>
+<li>Install repository to apt
+<pre class="highlight"><code>sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+$(. /etc/os-release &amp;&amp; echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update</code></pre></li>
+<li>Install latest
+<pre class="highlight"><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code></pre></li>
+</ol>
+</details>
               
             </div>
           </div><footer>
@@ -146,5 +165,5 @@ docs/
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-07-27 09:44:49.494375+00:00
+Build Date UTC : 2025-07-27 10:31:21.066665+00:00
 -->
