@@ -5,7 +5,8 @@ nav:
   - Extending shiina: plugins.md
 
 repo_url: https://github.com/osu-NoLimits/wiki/
-edit_uri: blob/main/docs/
+edit_uri: 'blob/main/docs/'
+edit_uri_template: 'blob/main/docs/{path}'
 
 theme:
   name: readthedocs
