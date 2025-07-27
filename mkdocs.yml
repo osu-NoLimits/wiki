@@ -5,15 +5,23 @@ nav:
   - Extending shiina: plugins.md
 
 repo_url: https://github.com/osu-NoLimits/wiki/
-edit_uri: 'blob/main/docs/'
 edit_uri_template: 'blob/main/docs/{path}'
 
 theme:
-  name: readthedocs
+  name: material
   highlightjs: true
-  hljs_languages:
-    - yaml
-    - rust
+  palette: 
+    - scheme: default
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+
 
 markdown_extensions:
   - admonition
