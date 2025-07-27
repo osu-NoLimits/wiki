@@ -4,6 +4,9 @@ nav:
   - Home: index.md
   - Extending shiina: plugins.md
 
+repo_url: https://github.com/osu-NoLimits/wiki/
+edit_uri: blob/main/docs/
+
 theme:
   name: readthedocs
   highlightjs: true
