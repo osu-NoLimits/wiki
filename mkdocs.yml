@@ -1,7 +1,7 @@
 site_name: osuNoLimits Dev Wiki
 
 nav:
-  - Home: index.md
+  - Installation: index.md
   - Extending shiina: plugins.md
 
 repo_url: https://github.com/osu-NoLimits/wiki/
@@ -14,3 +14,8 @@ theme:
   hljs_languages:
     - yaml
     - rust
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
