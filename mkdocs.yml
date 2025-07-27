@@ -1,5 +1,9 @@
 site_name: osuNoLimits Dev Wiki
 
+nav:
+  - Home: index.md
+  - Extending shiina: plugins.md
+
 theme:
   name: readthedocs
   highlightjs: true
