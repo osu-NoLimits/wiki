@@ -6,10 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Development documentation for osuNoLimits">
+        <meta name="description" content="How to setup a osu! private server with shiina and bancho.py-ex">
       
       
-        <meta name="author" content="osuNoLimits Team">
+        <meta name="author" content="osuNoLimits Documentation Team">
       
       
         <link rel="canonical" href="https://your-site-url.com/plugins/">
@@ -18,13 +18,15 @@
         <link rel="prev" href="..">
       
       
+        <link rel="next" href="../theming/">
+      
       
       <link rel="icon" href="../images/logo-small.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Extending shiina - osuNoLimits Dev Wiki</title>
+        <title>Extending shiina - osuNoLimits Tech Documentation</title>
       
     
     
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="osuNoLimits Dev Wiki" class="md-header__button md-logo" aria-label="osuNoLimits Dev Wiki" data-md-component="logo">
+    <a href=".." title="osuNoLimits Tech Documentation" class="md-header__button md-logo" aria-label="osuNoLimits Tech Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +108,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            osuNoLimits Dev Wiki
+            osuNoLimits Tech Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,6 +270,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../theming/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Theming shiina
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../frontend/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developing a frontend
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -298,13 +338,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="osuNoLimits Dev Wiki" class="md-nav__button md-logo" aria-label="osuNoLimits Dev Wiki" data-md-component="logo">
+    <a href=".." title="osuNoLimits Tech Documentation" class="md-nav__button md-logo" aria-label="osuNoLimits Tech Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    osuNoLimits Dev Wiki
+    osuNoLimits Tech Documentation
   </label>
   
     <div class="md-nav__source">
@@ -359,19 +399,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Extending shiina
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -384,36 +411,50 @@
 
       </a>
       
-        
-
+    </li>
   
 
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
-        <li class="md-nav__item">
-  <a href="#starting-plugin-development" class="md-nav__link">
-    <span class="md-ellipsis">
-      Starting plugin development
-    </span>
-  </a>
-  
-</li>
       
-    </ul>
   
-</nav>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Theming shiina
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
       
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developing a frontend
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -451,7 +492,6 @@
 
 
 <h1 id="extending-shiina">Extending shiina<a class="headerlink" href="#extending-shiina" title="Permanent link">&para;</a></h1>
-<h2 id="starting-plugin-development">Starting plugin development<a class="headerlink" href="#starting-plugin-development" title="Permanent link">&para;</a></h2>
 
 
 
@@ -504,6 +544,22 @@
             </div>
           </a>
         
+        
+          
+          <a href="../theming/" class="md-footer__link md-footer__link--next" aria-label="Next: Theming shiina">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Theming shiina
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
