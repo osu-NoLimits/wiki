@@ -26,12 +26,12 @@ Configure the following subdomains to point to your server. We strongly recommen
         | Subdomain | Purpose | Example |
         |-----------|---------|---------|
         | `@` | Main domain | `osunolimits.dev` |
-        | `osu` | Game server | `osu.osunolimits.dev` |
+        | `osu` | Game client connection | `osu.osunolimits.dev` |
         | `c` | Game server | `c.osunolimits.dev` |
-        | `c4` | Game server | `c.osunolimits.dev` |
+        | `c4` | Game server | `c4.osunolimits.dev` |
         | `a` | API endpoint | `a.osunolimits.dev` |
         | `assets` | Static assets | `assets.osunolimits.dev` |
-        | `api` | Bancho API | `assets.osunolimits.dev` |
+        | `api` | Bancho API | `api.osunolimits.dev` |
     
     === "Cloudflare Setup"
         1. Add your domain to Cloudflare
@@ -55,6 +55,13 @@ Configure the following subdomains to point to your server. We strongly recommen
     - :material-backup-restore: Maintain your configuration
 
 ## :material-docker: Installing bancho.py-ex
+
+![Discord](https://img.shields.io/discord/1295422749807743037?label=Discord&link=https%3A%2F%2Fdiscord.gg%2F6DH8bB24p6&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
+![GitHub contributors](https://img.shields.io/github/contributors/osu-NoLimits/bancho.py-ex?label=Contributors&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2Fbancho.py-ex)
+![GitHub License](https://img.shields.io/github/license/osu-NoLimits/Shiina-Web?label=License&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2Fbancho.py-ex)
+![GitHub Created At](https://img.shields.io/github/created-at/osu-NoLimits/bancho.py-ex?label=Created&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2Shiina-Web)
+![Static Badge](https://img.shields.io/badge/available%20-%20Test?label=Documentation&color=1783a3&link=https%3A%2F%2Fosu-nolimits.github.io%2Fwiki%2F)
+![GitHub Repo stars](https://img.shields.io/github/stars/osu-NoLimits/bancho.py-ex)
 
 ### :material-package-variant-closed: Docker Installation
 
@@ -130,7 +137,8 @@ Docker is required to run bancho.py-ex. Choose your operating system below:
 
 === ":material-fedora: Fedora"
 
-    **Step 1:** Remove conflicting packages
+    !!! warning "Cleanup First"
+        Remove any conflicting Docker packages:
     ```bash
     sudo dnf remove docker \
                   docker-client \
@@ -221,7 +229,7 @@ Git is required for cloning the repository and managing updates.
 
 === ":material-ubuntu: Ubuntu & Debian"
 
-    **Step 1:** Install Git
+    **Step 1:** Update package list and install Git
     ```bash
     sudo apt update
     sudo apt install git
@@ -232,6 +240,9 @@ Git is required for cloning the repository and managing updates.
     git --version
     ```
 
+    !!! success "Expected Output"
+        You should see something like `git version 2.34.1`
+
     **Step 3:** Configure Git (replace with your information)
     ```bash
     git config --global user.name "Your Name"
@@ -240,7 +251,7 @@ Git is required for cloning the repository and managing updates.
 
 === ":material-fedora: Fedora"
 
-    **Step 1:** Install Git
+    **Step 1:** Update packages and install Git
     ```bash
     sudo dnf update
     sudo dnf install git
@@ -250,6 +261,9 @@ Git is required for cloning the repository and managing updates.
     ```bash
     git --version
     ```
+
+    !!! success "Expected Output"
+        You should see something like `git version 2.34.1`
 
     **Step 3:** Configure Git (replace with your information)
     ```bash
@@ -268,8 +282,6 @@ Clone the bancho.py-ex repository to your server:
 git clone https://github.com/osu-NoLimits/bancho.py-ex.git /home/bancho-py-ex
 cd /home/bancho-py-ex
 ```
-
-## :material-cog: Configuration
 
 ### :material-file-cog: Environment Setup
 
@@ -338,8 +350,6 @@ Install the pre-configured nginx setup:
 
 !!! success "Configuration Complete"
     Your nginx configuration has been automatically set up with the correct proxy settings for all bancho.py-ex endpoints.
-
-## :material-rocket: Deployment
 
 ### :material-hammer-wrench: Build and Start
 

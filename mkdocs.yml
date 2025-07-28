@@ -1,11 +1,13 @@
-site_name: osuNoLimits Dev Wiki
-site_description: Development documentation for osuNoLimits
-site_author: osuNoLimits Team
+site_name: osuNoLimits Tech Documentation
+site_description: How to setup a osu! private server with shiina and bancho.py-ex
+site_author: osuNoLimits Documentation Team
 site_url: https://your-site-url.com
 
 nav:
   - Installation: index.md
   - Extending shiina: plugins.md
+  - Theming shiina: theming.md
+  - Developing a frontend: frontend.md
 
 repo_url: https://github.com/osu-NoLimits/wiki/
 repo_name: osu-NoLimits/wiki
