@@ -1,7 +1,10 @@
 site_name: osuNoLimits Tech Documentation
 site_description: How to setup a osu! private server with shiina and bancho.py-ex
 site_author: osuNoLimits Documentation Team
-site_url: https://your-site-url.com
+site_url: https://osu-nolimits.github.io/
+
+extra_javascript:
+  - https://plausible.aero-network.de/js/script.js
 
 nav:
   - Home: index.md
@@ -134,6 +137,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+
 
 plugins:
   - search:
