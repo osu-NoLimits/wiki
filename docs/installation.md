@@ -25,7 +25,7 @@ Configure the following subdomains to point to your server. We strongly recommen
         | `osu` | Game client connection | `osu.osunolimits.dev` |
         | `c` | Game server | `c.osunolimits.dev` |
         | `c4` | Game server | `c4.osunolimits.dev` |
-        | `a` | API endpoint | `a.osunolimits.dev` |
+        | `a` | Avatar endpoint | `a.osunolimits.dev` |
         | `assets` | Static assets | `assets.osunolimits.dev` |
         | `api` | Bancho API | `api.osunolimits.dev` |
     
