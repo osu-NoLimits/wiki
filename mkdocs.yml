@@ -4,7 +4,7 @@ site_author: osuNoLimits Documentation Team
 site_url: https://osu-nolimits.github.io/
 
 extra_javascript:
-  - https://plausible.aero-network.de/js/script.js
+  - https://beacon.herpers-solutions.de/js/script.js
 
 nav:
   - Home: index.md
@@ -13,7 +13,7 @@ nav:
   - Theming shiina: theming.md
   - Developing a frontend: frontend.md
 
-repo_url: https://github.com/osu-NoLimits/wiki/
+repo_url: https://github.com/osu-NoLimits/wiki
 repo_name: osu-NoLimits/wiki
 edit_uri_template: 'blob/main/docs/{path}'
 
