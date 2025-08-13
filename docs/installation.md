@@ -466,11 +466,145 @@ nano .env
 
     | Setting | Description | Required |
     |---------|-------------|----------|
-    | `TURNSTILE_KEY` | [Get Cloudflare Captcha key here](https://www.cloudflare.com/de-de/application-services/products/turnstile/) | ✅ |
-    | `TURNSTILE_SECRET` | [Get Cloudflare Captcha key here](https://www.cloudflare.com/de-de/application-services/products/turnstile/) | ✅ |
+    | `TURNSTILE_KEY` | [Get Cloudflare Captcha key here](https://dash.cloudflare.com/sign-up?to=/:account/turnstile) | ✅ |
+    | `TURNSTILE_SECRET` | [Get Cloudflare Captcha key here](https://dash.cloudflare.com/sign-up?to=/:account/turnstile) | ✅ |
     | `DBPASS` | Your bancho.py-ex DB_PASS | ✅ |
     | `DOMAIN` | Your domain (def. `https://osunolimits.dev`) | ✅ |
     | `APIURLPUBLIC` | Your pub api domain (def. `https://api.osunolimits.dev`) | ✅ |
     | `ASSETSURL` | Your pub assets domain (def. `https://assets.osunolimits.dev`) | ✅ |
     | `AVATARSRV` | Your pub avatars domain (def. `https://a.osunolimits.dev`) | ✅ |
+    
+
+=== ":material-plus: Optional"
+
+    | Setting | Description | Required |
+    |---------|-------------|----------|
     | `DOWNLOAD_MARKETPLACE_PLUGIN` | Offers a plugin marketplace (def. `true`) | ❌ |
+    | `APIURL` | Local API Host (Should stay default) | ❌ |
+    | `AVATARFOLDER` | Avatar folder only needs change when installed not like wiki | ❌ |
+
+### :material-hammer-wrench: Build and Start
+
+With everything configured, build and start the project:
+
+```bash
+# Build shiina
+make build
+
+# Start the frontend
+make run
+```
+
+!!! tip "Development vs Production"
+    - For **development**: Use `make run-dev` for easier debugging and hot reloading
+    - For **production**: Consider using `screen -S shiina make run` to run in background
+
+
+# Frequently Asked Questions
+
+Here you'll find answers to the most common questions.
+
+---
+
+## Installation
+
+??? question "How can I use local machine MySQL and Redis?"
+    To use local MySQL and Redis you can create a `docker-compose.override.yml`
+    ```bashc
+    cd /home/bancho.py-ex
+    nano docker-compose.override.yml
+    ```
+
+    **File Content:**
+    ```yaml
+    services:
+        bancho:
+            depends_on: []
+            network_mode: host
+            volumes:
+            - /home/bancho.py-ex/.data:/srv/root
+            - .:/srv/root
+            - data:/srv/root/.data
+            environment:
+            - DB_HOST=127.0.0.1
+            - REDIS_HOST=127.0.0.1
+
+        mysql:
+            deploy:
+            replicas: 0
+
+        redis:
+            deploy:
+            replicas: 0
+    ```
+    Now your bancho will use your machines mysql and redis
+    
+    No worries the `docker-compose.override.yml` is in *.gitignore*
+
+??? question "Why are my assets/avatars not showing up?"
+    SOON, I forgot
+
+??? question "How can I recieve Donations on shiina?"
+    The only provider supported is **kofi**
+    ```bash
+    nano /home/Shiina-Web/data/monetization.json
+    # Set enabled to `true`
+    # Restart shiina
+    nano /home/Shiina-Web/data/monetization/kofi.json
+    ```
+
+    https://ko-fi.com/manage/webhooks?src=sidemenu
+
+    Enter `https://yourdomain.dev/handlekofi`
+    
+    On *Advanced* you can get your verification token
+
+    File Content
+    ```json
+    {
+        "verificationToken": "your-access-token",
+        "pageName": "osunolimits",
+        "donationAmount": 1
+    }
+    ```
+    `donationAmount` is the amount of your currency to pay
+
+    If someones buys for 10$ it would equal to 10 months
+---
+
+## Usage
+
+??? question "Why is my rank graph now showing?"
+    It needs at least a week of data to show
+
+??? question "Can I change code?"
+    Yes but it isn't recommended, it can cause issues updating. Use plugins/themes if possible
+---
+
+## Troubleshooting
+
+??? question "Can I see frontend logs?"
+    Shiina keeps logs for 30days and rotates them
+    ```bash
+    cd /home/Shiina-Web/logs
+    ```
+
+??? question "How can I recalc PP?"
+    For recalc you need to open a shell in the docker container
+    ```bash
+    docker ps
+    # Pick the container id that runs bancho
+    docker exec -it yourid sh
+    # now go into tools
+    cd tools/
+    python recalc.py
+    ```
+
+??? question "How clear frontend sessions/cache?"
+    ```bash
+    apt install redis-tools # or for your system
+    redis-cli
+    # now you are in redis terminal
+    EVAL "for _,k in ipairs(redis.call('KEYS', 'shiina:*')) do redis.call('DEL', k) end" 0
+    # Now you need to restart shiina to initialize some keys
+    ```
