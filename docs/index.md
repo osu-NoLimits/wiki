@@ -1,5 +1,3 @@
-# Home
-
 !!! tip "Get VPS Hosting"
     <a href="https://pay.vps.direct?ref=hersol" target="_blank" rel="nofollow sponsored" style="font-weight: bold; color: #1976d2; text-decoration: underline;">
       Get VPS hosting from our recommended provider

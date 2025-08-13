@@ -1,13 +1,11 @@
-# Frontend Development Guide
-
 Welcome to the comprehensive guide for building frontends that integrate with [bancho.py-ex](https://github.com/osu-NoLimits/bancho.py-ex). This guide covers the PubSub system that enables real-time communication between your frontend and the server.
 
 !!! info "What are PubSubs?"
     **PubSubs** (Publish-Subscribe) are real-time communication channels that allow external applications to interact with the bancho.py-ex server. Each channel either **sends** data from the server or **receives** commands from your application.
 
 !!! tip "Getting Started"
-    - :material-message: **Sends** - Server pushes data to your application
-    - :material-message-reply: **Receives** - Your application sends commands to server
+    - :material-send: **Sends** - Server pushes data to your application
+    - :fontawesome-solid-satellite-dish: **Receives** - Your application sends commands to server
     - :material-code-json: All data is transmitted in JSON format
 
 ## :material-file: Implementation example
@@ -119,7 +117,7 @@ Welcome to the comprehensive guide for building frontends that integrate with [b
 
 ### :material-star: Beatmap Ranking
 
-!!! example ":material-receive: `rank`"
+!!! example ":fontawesome-solid-satellite-dish: `rank`"
 
     **Direction:** :material-arrow-left: Your application sends to server  
     **Purpose:** Manually rank/unrank beatmaps
@@ -146,7 +144,7 @@ Welcome to the comprehensive guide for building frontends that integrate with [b
 
 ### :material-account-cancel: User Restriction
 
-!!! example ":material-receive: `restrict`"
+!!! example ":fontawesome-solid-satellite-dish: `restrict`"
 
     **Direction:** :material-arrow-left: Your application sends to server  
     **Purpose:** Restrict user accounts
@@ -171,7 +169,7 @@ Welcome to the comprehensive guide for building frontends that integrate with [b
 
 ### :material-account-check: User Unrestriction
 
-!!! example ":material-receive: `unrestrict`"
+!!! example ":fontawesome-solid-satellite-dish: `unrestrict`"
 
     **Direction:** :material-arrow-left: Your application sends to server  
     **Purpose:** Unrestrict user accounts
@@ -196,7 +194,7 @@ Welcome to the comprehensive guide for building frontends that integrate with [b
 
 ### :material-delete-sweep: User Data Wipe
 
-!!! example ":material-receive: `wipe`"
+!!! example ":fontawesome-solid-satellite-dish: `wipe`"
 
     **Direction:** :material-arrow-left: Your application sends to server  
     **Purpose:** Wipe user statistics for specific game mode
@@ -221,7 +219,7 @@ Welcome to the comprehensive guide for building frontends that integrate with [b
 
 ### :material-bullhorn: Global Announcements
 
-!!! example ":material-receive: `alert_all`"
+!!! example ":fontawesome-solid-satellite-dish: `alert_all`"
 
     **Direction:** :material-arrow-left: Your application sends to server  
     **Purpose:** Send announcements to all online users
@@ -244,7 +242,7 @@ Welcome to the comprehensive guide for building frontends that integrate with [b
 
 ### :material-heart: Supporter Status
 
-!!! example ":material-receive: `givedonator`"
+!!! example ":fontawesome-solid-satellite-dish: `givedonator`"
 
     **Direction:** :material-arrow-left: Your application sends to server  
     **Purpose:** Grant supporter/donator status
@@ -273,7 +271,7 @@ Welcome to the comprehensive guide for building frontends that integrate with [b
 
 ### :material-plus-circle: Add Privileges
 
-!!! example ":material-receive: `addpriv`"
+!!! example ":fontawesome-solid-satellite-dish: `addpriv`"
 
     **Direction:** :material-arrow-left: Your application sends to server  
     **Purpose:** Grant user privileges
@@ -296,7 +294,7 @@ Welcome to the comprehensive guide for building frontends that integrate with [b
 
 ### :material-minus-circle: Remove Privileges
 
-!!! example ":material-receive: `removepriv`"
+!!! example ":fontawesome-solid-satellite-dish: `removepriv`"
 
     **Direction:** :material-arrow-left: Your application sends to server  
     **Purpose:** Remove user privileges

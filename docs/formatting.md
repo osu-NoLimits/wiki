@@ -1,5 +1,3 @@
-# Formatting
-
 ### Highlighting
 
 !!! note "ex:submit"

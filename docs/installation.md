@@ -1,5 +1,3 @@
-# Installation Guide
-
 Welcome to the comprehensive installation guide for **osuNoLimits**. This guide will walk you through setting up [Shiina-Web](https://github.com/osu-NoLimits/Shiina-Web) and [bancho.py-ex](https://github.com/osu-NoLimits/bancho.py-ex) from scratch.
 
 
@@ -397,3 +395,82 @@ nano caps.json
     - Set `"enabled": true` to activate automatic banning
     - Adjust PP values based on your server's skill level
     - Monitor logs for any false positives
+
+## :fontawesome-brands-java: Installing Shiina-Web
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/osu-NoLimits/Shiina-Web/maven.yml?label=Tests&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
+![Discord](https://img.shields.io/discord/1295422749807743037?label=Discord&link=https%3A%2F%2Fdiscord.gg%2F6DH8bB24p6&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
+![GitHub contributors](https://img.shields.io/github/contributors/osu-NoLimits/Shiina-Web?label=Contributors&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
+![GitHub License](https://img.shields.io/github/license/osu-NoLimits/Shiina-Web?label=License&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
+![GitHub Created At](https://img.shields.io/github/created-at/osu-NoLimits/Shiina-Web?label=Created&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
+![Static Badge](https://img.shields.io/badge/available%20-%20Test?label=Documentation&color=1783a3&link=https%3A%2F%2Fosu-nolimits.github.io%2Fwiki%2F)
+![GitHub Repo stars](https://img.shields.io/github/stars/osu-NoLimits/Shiina-Web)
+
+bancho.py-ex should be installed at this step
+
+### :fontawesome-brands-java: Installing Java
+
+=== ":material-ubuntu: Ubuntu"
+
+    ```bash
+    sudo apt install openjdk-21-jdk -y
+    ```
+
+=== ":material-debian: Debian"
+
+    ```bash
+    echo "deb http://deb.debian.org/debian bullseye-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
+    sudo apt update
+
+    # Debian 12
+    sudo apt install openjdk-21-jdk -y
+
+    # Debian 11
+    sudo apt install -t bullseye-backports openjdk-21-jdk -y
+    ```
+
+=== ":material-fedora: Fedora"
+    ```bash
+    sudo dnf install java-21-openjdk-devel -y
+    ```
+
+### :material-download: Repository Setup
+
+Clone the Shiina-Web repository to your server:
+
+!!! tip "Use Your Fork"
+    If you created a fork, replace the URL with your fork's URL for easier updates.
+
+```bash
+git clone https://github.com/osu-NoLimits/Shiina-Web.git /home/Shiina-Web
+cd /home/Shiina-Web
+```
+
+### :fontawesome-solid-sliders: Configuration
+
+```bash
+# Navigate to the config directory
+cd .config
+
+cp .env.example .env && cp customization.yml.example customization.yml && cp logger.env.example logger.env
+
+# Editing customization.yml is pretty obvious (no tutorial here)
+
+nano .env
+```
+
+
+!!! warning "Required Configuration"
+    You **must** configure these essential settings before proceeding:
+
+=== ":material-key: Main"
+
+    | Setting | Description | Required |
+    |---------|-------------|----------|
+    | `TURNSTILE_KEY` | [Get Cloudflare Captcha key here](https://www.cloudflare.com/de-de/application-services/products/turnstile/) | ✅ |
+    | `TURNSTILE_SECRET` | [Get Cloudflare Captcha key here](https://www.cloudflare.com/de-de/application-services/products/turnstile/) | ✅ |
+    | `DBPASS` | Your bancho.py-ex DB_PASS | ✅ |
+    | `DOMAIN` | Your domain (def. `https://osunolimits.dev`) | ✅ |
+    | `APIURLPUBLIC` | Your pub api domain (def. `https://api.osunolimits.dev`) | ✅ |
+    | `ASSETSURL` | Your pub assets domain (def. `https://assets.osunolimits.dev`) | ✅ |
+    | `AVATARSRV` | Your pub avatars domain (def. `https://a.osunolimits.dev`) | ✅ |
+    | `DOWNLOAD_MARKETPLACE_PLUGIN` | Offers a plugin marketplace (def. `true`) | ❌ |
