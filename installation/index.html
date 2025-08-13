@@ -598,6 +598,57 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#build-and-start_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build and Start
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequently-asked-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frequently Asked Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequently Asked Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -708,8 +759,6 @@
     </a>
   
 
-
-  <h1>Installation</h1>
 
 <p>Welcome to the comprehensive installation guide for <strong>osuNoLimits</strong>. This guide will walk you through setting up <a href="https://github.com/osu-NoLimits/Shiina-Web">Shiina-Web</a> and <a href="https://github.com/osu-NoLimits/bancho.py-ex">bancho.py-ex</a> from scratch.</p>
 <div class="admonition warning">
@@ -1205,7 +1254,7 @@
 <p class="admonition-title">Required Configuration</p>
 <p>You <strong>must</strong> configure these essential settings before proceeding:</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="configuration-main" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="configuration-main"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2m5.6-4c-.8-2.3-3-4-5.6-4-3.3 0-6 2.7-6 6s2.7 6 6 6c2.6 0 4.8-1.7 5.6-4H16v4h4v-4h3v-4z"/></svg></span> Main</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="configuration-main" name="__tabbed_7" type="radio" /><input id="configuration-optional" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="configuration-main"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2m5.6-4c-.8-2.3-3-4-5.6-4-3.3 0-6 2.7-6 6s2.7 6 6 6c2.6 0 4.8-1.7 5.6-4H16v4h4v-4h3v-4z"/></svg></span> Main</label><label for="configuration-optional"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg></span> Optional</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table>
@@ -1219,12 +1268,12 @@
 <tbody>
 <tr>
 <td><code>TURNSTILE_KEY</code></td>
-<td><a href="https://www.cloudflare.com/de-de/application-services/products/turnstile/">Get Cloudflare Captcha key here</a></td>
+<td><a href="https://dash.cloudflare.com/sign-up?to=/:account/turnstile">Get Cloudflare Captcha key here</a></td>
 <td>✅</td>
 </tr>
 <tr>
 <td><code>TURNSTILE_SECRET</code></td>
-<td><a href="https://www.cloudflare.com/de-de/application-services/products/turnstile/">Get Cloudflare Captcha key here</a></td>
+<td><a href="https://dash.cloudflare.com/sign-up?to=/:account/turnstile">Get Cloudflare Captcha key here</a></td>
 <td>✅</td>
 </tr>
 <tr>
@@ -1252,9 +1301,32 @@
 <td>Your pub avatars domain (def. <code>https://a.osunolimits.dev</code>)</td>
 <td>✅</td>
 </tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>DOWNLOAD_MARKETPLACE_PLUGIN</code></td>
 <td>Offers a plugin marketplace (def. <code>true</code>)</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><code>APIURL</code></td>
+<td>Local API Host (Should stay default)</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><code>AVATARFOLDER</code></td>
+<td>Avatar folder only needs change when installed not like wiki</td>
 <td>❌</td>
 </tr>
 </tbody>
@@ -1262,6 +1334,118 @@
 </div>
 </div>
 </div>
+<h3 id="build-and-start_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.78 15.3 6 6 2.11-2.16-6-6zm3.72-5.2c-.39 0-.81-.05-1.14-.19L4.97 21.25l-2.11-2.11 7.41-7.4L8.5 9.96l-.72.7-1.45-1.41v2.86l-.7.7-3.52-3.56.7-.7h2.81l-1.4-1.41 3.56-3.56a2.976 2.976 0 0 1 4.22 0L9.89 5.74l1.41 1.4-.71.71 1.79 1.78 1.82-1.88c-.14-.33-.2-.75-.2-1.12a3.49 3.49 0 0 1 3.5-3.52c.59 0 1.11.14 1.58.42L16.41 6.2l1.5 1.5 2.67-2.67c.28.47.42.97.42 1.6 0 1.92-1.55 3.47-3.5 3.47"/></svg></span> Build and Start<a class="headerlink" href="#build-and-start_1" title="Permanent link">&para;</a></h3>
+<p>With everything configured, build and start the project:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1"># Build shiina</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>make<span class="w"> </span>build
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="c1"># Start the frontend</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>make<span class="w"> </span>run
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Development vs Production</p>
+<ul>
+<li>For <strong>development</strong>: Use <code>make run-dev</code> for easier debugging and hot reloading</li>
+<li>For <strong>production</strong>: Consider using <code>screen -S shiina make run</code> to run in background</li>
+</ul>
+</div>
+<h1 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h1>
+<p>Here you'll find answers to the most common questions.</p>
+<hr />
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>How can I use local machine MySQL and Redis?</summary>
+<p>To use local MySQL and Redis you can create a <code>docker-compose.override.yml</code>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>cd /home/bancho.py-ex
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>nano docker-compose.override.yml
+</span></code></pre></div></p>
+<p><strong>File Content:</strong>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">    </span><span class="nt">bancho</span><span class="p">:</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">        </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/bancho.py-ex/.data:/srv/root</span>
+</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/srv/root</span>
+</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data:/srv/root/.data</span>
+</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="w">        </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_HOST=127.0.0.1</span>
+</span><span id="__span-41-11"><a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDIS_HOST=127.0.0.1</span>
+</span><span id="__span-41-12"><a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a>
+</span><span id="__span-41-13"><a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a><span class="w">    </span><span class="nt">mysql</span><span class="p">:</span>
+</span><span id="__span-41-14"><a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a><span class="w">        </span><span class="nt">deploy</span><span class="p">:</span>
+</span><span id="__span-41-15"><a id="__codelineno-41-15" name="__codelineno-41-15" href="#__codelineno-41-15"></a><span class="w">        </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-41-16"><a id="__codelineno-41-16" name="__codelineno-41-16" href="#__codelineno-41-16"></a>
+</span><span id="__span-41-17"><a id="__codelineno-41-17" name="__codelineno-41-17" href="#__codelineno-41-17"></a><span class="w">    </span><span class="nt">redis</span><span class="p">:</span>
+</span><span id="__span-41-18"><a id="__codelineno-41-18" name="__codelineno-41-18" href="#__codelineno-41-18"></a><span class="w">        </span><span class="nt">deploy</span><span class="p">:</span>
+</span><span id="__span-41-19"><a id="__codelineno-41-19" name="__codelineno-41-19" href="#__codelineno-41-19"></a><span class="w">        </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span></code></pre></div>
+Now your bancho will use your machines mysql and redis</p>
+<p>No worries the <code>docker-compose.override.yml</code> is in <em>.gitignore</em></p>
+</details>
+<details class="question">
+<summary>Why are my assets/avatars not showing up?</summary>
+<p>SOON, I forgot</p>
+</details>
+<details class="question">
+<summary>How can I recieve Donations on shiina?</summary>
+<p>The only provider supported is <strong>kofi</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>nano<span class="w"> </span>/home/Shiina-Web/data/monetization.json
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="c1"># Set enabled to `true`</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="c1"># Restart shiina</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>nano<span class="w"> </span>/home/Shiina-Web/data/monetization/kofi.json
+</span></code></pre></div></p>
+<p><a href="https://ko-fi.com/manage/webhooks?src=sidemenu">https://ko-fi.com/manage/webhooks?src=sidemenu</a></p>
+<p>Enter <code>https://yourdomain.dev/handlekofi</code></p>
+<p>On <em>Advanced</em> you can get your verification token</p>
+<p>File Content
+<div class="language-json highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="p">{</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">    </span><span class="nt">&quot;verificationToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-access-token&quot;</span><span class="p">,</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">    </span><span class="nt">&quot;pageName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;osunolimits&quot;</span><span class="p">,</span>
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">    </span><span class="nt">&quot;donationAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<code>donationAmount</code> is the amount of your currency to pay</p>
+<p>If someones buys for 10$ it would equal to 10 months</p>
+</details>
+<hr />
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>Why is my rank graph now showing?</summary>
+<p>It needs at least a week of data to show</p>
+</details>
+<details class="question">
+<summary>Can I change code?</summary>
+<p>Yes but it isn't recommended, it can cause issues updating. Use plugins/themes if possible</p>
+</details>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>Can I see frontend logs?</summary>
+<p>Shiina keeps logs for 30days and rotates them
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nb">cd</span><span class="w"> </span>/home/Shiina-Web/logs
+</span></code></pre></div></p>
+</details>
+<details class="question">
+<summary>How can I recalc PP?</summary>
+<p>For recalc you need to open a shell in the docker container
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>docker<span class="w"> </span>ps
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="c1"># Pick the container id that runs bancho</span>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>yourid<span class="w"> </span>sh
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1"># now go into tools</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="nb">cd</span><span class="w"> </span>tools/
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>python<span class="w"> </span>recalc.py
+</span></code></pre></div></p>
+</details>
+<details class="question">
+<summary>How clear frontend sessions/cache?</summary>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>apt<span class="w"> </span>install<span class="w"> </span>redis-tools<span class="w"> </span><span class="c1"># or for your system</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>redis-cli
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="c1"># now you are in redis terminal</span>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>EVAL<span class="w"> </span><span class="s2">&quot;for _,k in ipairs(redis.call(&#39;KEYS&#39;, &#39;shiina:*&#39;)) do redis.call(&#39;DEL&#39;, k) end&quot;</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="c1"># Now you need to restart shiina to initialize some keys</span>
+</span></code></pre></div>
+</details>
 
 
 
