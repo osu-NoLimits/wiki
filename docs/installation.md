@@ -542,7 +542,7 @@ Here you'll find answers to the most common questions.
     No worries the `docker-compose.override.yml` is in *.gitignore*
 
 ??? question "Why are my assets/avatars not showing up?"
-    ## Fix for Avatar Server (a.your.domain) Returning 404
+    Fix for Avatar Server (a.your.domain) Returning 404
 
     If `/var/log/nginx/error.log` reports **permission denied**, run:
 
@@ -554,14 +554,14 @@ Here you'll find answers to the most common questions.
     chmod +x /var/lib/docker
     ```
 
-    ### What this does:
+    What this does:
     - Gives **www-data** (the Nginx user) ownership of the `_data` folder, which is stored inside a Docker volume.  
     - Allows all users on your machine to **browse the bancho.py Docker volume**.  
     - Allows all users on your machine to **browse the Docker volumes folder**.  
     - Allows all users on your machine to **browse the Docker folder**.  
     - *(does not include sub-folders)*  
 
-    ### Note
+    Note:
     If you use **Caddy** instead of Nginx, replace all occurrences of `www-data` with `caddy`.
 
 
