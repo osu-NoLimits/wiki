@@ -632,39 +632,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fix-for-avatar-server-ayourdomain-returning-404" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fix for Avatar Server (a.your.domain) Returning 404
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Fix for Avatar Server (a.your.domain) Returning 404">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-this-does" class="md-nav__link">
-    <span class="md-ellipsis">
-      What this does:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    <span class="md-ellipsis">
-      Note
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       Usage
@@ -1418,7 +1385,7 @@ Now your bancho will use your machines mysql and redis</p>
 </details>
 <details class="question">
 <summary>Why are my assets/avatars not showing up?</summary>
-<h2 id="fix-for-avatar-server-ayourdomain-returning-404">Fix for Avatar Server (a.your.domain) Returning 404<a class="headerlink" href="#fix-for-avatar-server-ayourdomain-returning-404" title="Permanent link">&para;</a></h2>
+<p>Fix for Avatar Server (a.your.domain) Returning 404</p>
 <p>If <code>/var/log/nginx/error.log</code> reports <strong>permission denied</strong>, run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>chown<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/lib/docker/volumes/banchopy-ex_data/_data
 </span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>chown<span class="w"> </span>www-data:www-data<span class="w"> </span>/home/bancho.py-ex/.data
@@ -1426,16 +1393,14 @@ Now your bancho will use your machines mysql and redis</p>
 </span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/var/lib/docker/volumes
 </span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/var/lib/docker
 </span></code></pre></div>
-<h3 id="what-this-does">What this does:<a class="headerlink" href="#what-this-does" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Gives <strong>www-data</strong> (the Nginx user) ownership of the <code>_data</code> folder, which is stored inside a Docker volume.  </li>
-<li>Allows all users on your machine to <strong>browse the bancho.py Docker volume</strong>.  </li>
-<li>Allows all users on your machine to <strong>browse the Docker volumes folder</strong>.  </li>
-<li>Allows all users on your machine to <strong>browse the Docker folder</strong>.  </li>
-<li><em>(does not include sub-folders)</em>  </li>
-</ul>
-<h3 id="note">Note<a class="headerlink" href="#note" title="Permanent link">&para;</a></h3>
-<p>If you use <strong>Caddy</strong> instead of Nginx, replace all occurrences of <code>www-data</code> with <code>caddy</code>.</p>
+<p>What this does:
+- Gives <strong>www-data</strong> (the Nginx user) ownership of the <code>_data</code> folder, which is stored inside a Docker volume.<br />
+- Allows all users on your machine to <strong>browse the bancho.py Docker volume</strong>.<br />
+- Allows all users on your machine to <strong>browse the Docker volumes folder</strong>.<br />
+- Allows all users on your machine to <strong>browse the Docker folder</strong>.<br />
+- <em>(does not include sub-folders)</em>  </p>
+<p>Note:
+If you use <strong>Caddy</strong> instead of Nginx, replace all occurrences of <code>www-data</code> with <code>caddy</code>.</p>
 </details>
 <details class="question">
 <summary>How can I recieve Donations on shiina?</summary>
