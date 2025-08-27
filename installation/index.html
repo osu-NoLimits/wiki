@@ -1389,8 +1389,8 @@
 <details class="question">
 <summary>How can I use local machine MySQL and Redis?</summary>
 <p>To use local MySQL and Redis you can create a <code>docker-compose.override.yml</code>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>cd /home/bancho.py-ex
-</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>nano docker-compose.override.yml
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nb">cd</span><span class="w"> </span>/home/bancho.py-ex
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>nano<span class="w"> </span>docker-compose.override.yml
 </span></code></pre></div></p>
 <p><strong>File Content:</strong>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nt">services</span><span class="p">:</span>
@@ -1420,11 +1420,12 @@ Now your bancho will use your machines mysql and redis</p>
 <summary>Why are my assets/avatars not showing up?</summary>
 <h2 id="fix-for-avatar-server-ayourdomain-returning-404">Fix for Avatar Server (a.your.domain) Returning 404<a class="headerlink" href="#fix-for-avatar-server-ayourdomain-returning-404" title="Permanent link">&para;</a></h2>
 <p>If <code>/var/log/nginx/error.log</code> reports <strong>permission denied</strong>, run:</p>
-<p>chown www-data:www-data /var/lib/docker/volumes/banchopy-ex_data/_data
-chown www-data:www-data /home/bancho.py-ex/.data
-chmod +x /var/lib/docker/volumes/banchopy-ex_data
-chmod +x /var/lib/docker/volumes
-chmod +x /var/lib/docker</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>chown<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/lib/docker/volumes/banchopy-ex_data/_data
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>chown<span class="w"> </span>www-data:www-data<span class="w"> </span>/home/bancho.py-ex/.data
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/var/lib/docker/volumes/banchopy-ex_data
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/var/lib/docker/volumes
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/var/lib/docker
+</span></code></pre></div>
 <h3 id="what-this-does">What this does:<a class="headerlink" href="#what-this-does" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Gives <strong>www-data</strong> (the Nginx user) ownership of the <code>_data</code> folder, which is stored inside a Docker volume.  </li>
@@ -1439,20 +1440,20 @@ chmod +x /var/lib/docker</p>
 <details class="question">
 <summary>How can I recieve Donations on shiina?</summary>
 <p>The only provider supported is <strong>kofi</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>nano<span class="w"> </span>/home/Shiina-Web/data/monetization.json
-</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="c1"># Set enabled to `true`</span>
-</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="c1"># Restart shiina</span>
-</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>nano<span class="w"> </span>/home/Shiina-Web/data/monetization/kofi.json
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>nano<span class="w"> </span>/home/Shiina-Web/data/monetization.json
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="c1"># Set enabled to `true`</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="c1"># Restart shiina</span>
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>nano<span class="w"> </span>/home/Shiina-Web/data/monetization/kofi.json
 </span></code></pre></div></p>
 <p><a href="https://ko-fi.com/manage/webhooks?src=sidemenu">https://ko-fi.com/manage/webhooks?src=sidemenu</a></p>
 <p>Enter <code>https://yourdomain.dev/handlekofi</code></p>
 <p>On <em>Advanced</em> you can get your verification token</p>
 <p>File Content
-<div class="language-json highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="p">{</span>
-</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">    </span><span class="nt">&quot;verificationToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-access-token&quot;</span><span class="p">,</span>
-</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">    </span><span class="nt">&quot;pageName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;osunolimits&quot;</span><span class="p">,</span>
-</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">    </span><span class="nt">&quot;donationAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
-</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="p">}</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="p">{</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">    </span><span class="nt">&quot;verificationToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-access-token&quot;</span><span class="p">,</span>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">    </span><span class="nt">&quot;pageName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;osunolimits&quot;</span><span class="p">,</span>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">    </span><span class="nt">&quot;donationAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <code>donationAmount</code> is the amount of your currency to pay</p>
 <p>If someones buys for 10$ it would equal to 10 months</p>
@@ -1472,27 +1473,27 @@ chmod +x /var/lib/docker</p>
 <details class="question">
 <summary>Can I see frontend logs?</summary>
 <p>Shiina keeps logs for 30days and rotates them
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nb">cd</span><span class="w"> </span>/home/Shiina-Web/logs
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nb">cd</span><span class="w"> </span>/home/Shiina-Web/logs
 </span></code></pre></div></p>
 </details>
 <details class="question">
 <summary>How can I recalc PP?</summary>
 <p>For recalc you need to open a shell in the docker container
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>docker<span class="w"> </span>ps
-</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="c1"># Pick the container id that runs bancho</span>
-</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>yourid<span class="w"> </span>sh
-</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1"># now go into tools</span>
-</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="nb">cd</span><span class="w"> </span>tools/
-</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>python<span class="w"> </span>recalc.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>docker<span class="w"> </span>ps
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="c1"># Pick the container id that runs bancho</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>yourid<span class="w"> </span>sh
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="c1"># now go into tools</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="nb">cd</span><span class="w"> </span>tools/
+</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>python<span class="w"> </span>recalc.py
 </span></code></pre></div></p>
 </details>
 <details class="question">
 <summary>How clear frontend sessions/cache?</summary>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>apt<span class="w"> </span>install<span class="w"> </span>redis-tools<span class="w"> </span><span class="c1"># or for your system</span>
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>redis-cli
-</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="c1"># now you are in redis terminal</span>
-</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>EVAL<span class="w"> </span><span class="s2">&quot;for _,k in ipairs(redis.call(&#39;KEYS&#39;, &#39;shiina:*&#39;)) do redis.call(&#39;DEL&#39;, k) end&quot;</span><span class="w"> </span><span class="m">0</span>
-</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="c1"># Now you need to restart shiina to initialize some keys</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>apt<span class="w"> </span>install<span class="w"> </span>redis-tools<span class="w"> </span><span class="c1"># or for your system</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>redis-cli
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="c1"># now you are in redis terminal</span>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>EVAL<span class="w"> </span><span class="s2">&quot;for _,k in ipairs(redis.call(&#39;KEYS&#39;, &#39;shiina:*&#39;)) do redis.call(&#39;DEL&#39;, k) end&quot;</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="c1"># Now you need to restart shiina to initialize some keys</span>
 </span></code></pre></div>
 </details>
 
