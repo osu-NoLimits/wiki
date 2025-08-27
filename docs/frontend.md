@@ -1,3 +1,5 @@
+# :simple-xdadevelopers: Developing for bpy-ex
+
 Welcome to the comprehensive guide for building frontends that integrate with [bancho.py-ex](https://github.com/osu-NoLimits/bancho.py-ex). This guide covers the PubSub system that enables real-time communication between your frontend and the server.
 
 !!! info "What are PubSubs?"

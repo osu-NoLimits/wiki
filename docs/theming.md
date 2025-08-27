@@ -1,4 +1,4 @@
-# :material-palette: Theming Shiina
+# :fontawesome-solid-paint-brush: Theming shiina
 
 Create stunning custom themes for your Shiina-Web frontend! This guide walks you through the complete theming system, from basic setup to advanced customization.
 

@@ -1,1 +1,1 @@
-# Extending shiina
+# :material-plus-box: Extending shiina
