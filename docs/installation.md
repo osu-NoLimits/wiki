@@ -542,7 +542,26 @@ Here you'll find answers to the most common questions.
     No worries the `docker-compose.override.yml` is in *.gitignore*
 
 ??? question "Why are my assets/avatars not showing up?"
-    SOON, I forgot
+    ## Fix for Avatar Server (a.your.domain) Returning 404
+
+    If `/var/log/nginx/error.log` reports **permission denied**, run:
+
+    chown www-data:www-data /var/lib/docker/volumes/banchopy-ex_data/_data
+    chown www-data:www-data /home/bancho.py-ex/.data
+    chmod +x /var/lib/docker/volumes/banchopy-ex_data
+    chmod +x /var/lib/docker/volumes
+    chmod +x /var/lib/docker
+
+    ### What this does:
+    - Gives **www-data** (the Nginx user) ownership of the `_data` folder, which is stored inside a Docker volume.  
+    - Allows all users on your machine to **browse the bancho.py Docker volume**.  
+    - Allows all users on your machine to **browse the Docker volumes folder**.  
+    - Allows all users on your machine to **browse the Docker folder**.  
+    - *(does not include sub-folders)*  
+
+    ### Note
+    If you use **Caddy** instead of Nginx, replace all occurrences of `www-data` with `caddy`.
+
 
 ??? question "How can I recieve Donations on shiina?"
     The only provider supported is **kofi**
@@ -574,7 +593,7 @@ Here you'll find answers to the most common questions.
 
 ## Usage
 
-??? question "Why is my rank graph now showing?"
+??? question "Why is my rank graph not showing?"
     It needs at least a week of data to show
 
 ??? question "Can I change code?"
