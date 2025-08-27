@@ -510,7 +510,7 @@ Here you'll find answers to the most common questions.
 
 ??? question "How can I use local machine MySQL and Redis?"
     To use local MySQL and Redis you can create a `docker-compose.override.yml`
-    ```bashc
+    ```bash
     cd /home/bancho.py-ex
     nano docker-compose.override.yml
     ```
@@ -546,11 +546,13 @@ Here you'll find answers to the most common questions.
 
     If `/var/log/nginx/error.log` reports **permission denied**, run:
 
+    ```bash
     chown www-data:www-data /var/lib/docker/volumes/banchopy-ex_data/_data
     chown www-data:www-data /home/bancho.py-ex/.data
     chmod +x /var/lib/docker/volumes/banchopy-ex_data
     chmod +x /var/lib/docker/volumes
     chmod +x /var/lib/docker
+    ```
 
     ### What this does:
     - Gives **www-data** (the Nginx user) ownership of the `_data` folder, which is stored inside a Docker volume.  
