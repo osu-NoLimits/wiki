@@ -632,6 +632,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#fix-for-avatar-server-ayourdomain-returning-404" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix for Avatar Server (a.your.domain) Returning 404
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fix for Avatar Server (a.your.domain) Returning 404">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this does:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       Usage
@@ -1385,7 +1418,23 @@ Now your bancho will use your machines mysql and redis</p>
 </details>
 <details class="question">
 <summary>Why are my assets/avatars not showing up?</summary>
-<p>SOON, I forgot</p>
+<h2 id="fix-for-avatar-server-ayourdomain-returning-404">Fix for Avatar Server (a.your.domain) Returning 404<a class="headerlink" href="#fix-for-avatar-server-ayourdomain-returning-404" title="Permanent link">&para;</a></h2>
+<p>If <code>/var/log/nginx/error.log</code> reports <strong>permission denied</strong>, run:</p>
+<p>chown www-data:www-data /var/lib/docker/volumes/banchopy-ex_data/_data
+chown www-data:www-data /home/bancho.py-ex/.data
+chmod +x /var/lib/docker/volumes/banchopy-ex_data
+chmod +x /var/lib/docker/volumes
+chmod +x /var/lib/docker</p>
+<h3 id="what-this-does">What this does:<a class="headerlink" href="#what-this-does" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Gives <strong>www-data</strong> (the Nginx user) ownership of the <code>_data</code> folder, which is stored inside a Docker volume.  </li>
+<li>Allows all users on your machine to <strong>browse the bancho.py Docker volume</strong>.  </li>
+<li>Allows all users on your machine to <strong>browse the Docker volumes folder</strong>.  </li>
+<li>Allows all users on your machine to <strong>browse the Docker folder</strong>.  </li>
+<li><em>(does not include sub-folders)</em>  </li>
+</ul>
+<h3 id="note">Note<a class="headerlink" href="#note" title="Permanent link">&para;</a></h3>
+<p>If you use <strong>Caddy</strong> instead of Nginx, replace all occurrences of <code>www-data</code> with <code>caddy</code>.</p>
 </details>
 <details class="question">
 <summary>How can I recieve Donations on shiina?</summary>
@@ -1411,7 +1460,7 @@ Now your bancho will use your machines mysql and redis</p>
 <hr />
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>Why is my rank graph now showing?</summary>
+<summary>Why is my rank graph not showing?</summary>
 <p>It needs at least a week of data to show</p>
 </details>
 <details class="question">
