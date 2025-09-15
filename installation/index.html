@@ -1350,8 +1350,8 @@ Now your bancho will use your machines mysql and redis</p>
 <summary>Why are my assets/avatars not showing up?</summary>
 <p>Fix for Avatar Server (a.your.domain) Returning 404</p>
 <p>If <code>/var/log/nginx/error.log</code> reports <strong>permission denied</strong>, run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>chown<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/lib/docker/volumes/banchopy-ex_data/_data
-</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>chown<span class="w"> </span>www-data:www-data<span class="w"> </span>/home/bancho.py-ex/.data
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/lib/docker/volumes/banchopy-ex_data/_data
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/home/bancho.py-ex/.data
 </span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/var/lib/docker/volumes/banchopy-ex_data
 </span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/var/lib/docker/volumes
 </span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/var/lib/docker
@@ -1365,6 +1365,11 @@ Now your bancho will use your machines mysql and redis</p>
 <p>Note:
 If you use <strong>Caddy</strong> instead of Nginx, replace all occurrences of <code>www-data</code> with <code>caddy</code>.</p>
 </details>
+<p>??? How to setup default avatar?
+    Nginx is looking in <code>/home/bancho.py-ex/.data/avatars</code> for a <code>default.jpg</code></p>
+<div class="language-text highlight"><pre><span></span><code>Note: 
+It can be possible that you need to reset permissions, help is in the section above
+</code></pre></div>
 <details class="question">
 <summary>How can I recieve Donations on shiina?</summary>
 <p>The only provider supported is <strong>kofi</strong>
