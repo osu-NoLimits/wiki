@@ -549,8 +549,8 @@ Here you'll find answers to the most common questions.
     If `/var/log/nginx/error.log` reports **permission denied**, run:
 
     ```bash
-    chown www-data:www-data /var/lib/docker/volumes/banchopy-ex_data/_data
-    chown www-data:www-data /home/bancho.py-ex/.data
+    chown -R www-data:www-data /var/lib/docker/volumes/banchopy-ex_data/_data
+    chown -R www-data:www-data /home/bancho.py-ex/.data
     chmod +x /var/lib/docker/volumes/banchopy-ex_data
     chmod +x /var/lib/docker/volumes
     chmod +x /var/lib/docker
@@ -565,6 +565,12 @@ Here you'll find answers to the most common questions.
 
     Note:
     If you use **Caddy** instead of Nginx, replace all occurrences of `www-data` with `caddy`.
+
+??? How to setup default avatar?
+    Nginx is looking in `/home/bancho.py-ex/.data/avatars` for a `default.jpg`
+
+    Note: 
+    It can be possible that you need to reset permissions, help is in the section above
 
 
 ??? question "How can I recieve Donations on shiina?"
