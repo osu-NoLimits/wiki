@@ -10,16 +10,7 @@ Welcome to the comprehensive installation guide for **osuNoLimits**. This guide 
     - :material-domain: A domain name with DNS access
     - :material-shield-check: Basic command-line knowledge
     - :material-clock: Approximately 30-60 minutes
-
-!!! tip "Get VPS Hosting"
-    <a href="https://pay.vps.direct?ref=hersol" target="_blank" rel="nofollow sponsored" style="font-weight: bold; color: #1976d2; text-decoration: underline;">
-      Get VPS hosting from our recommended provider
-    </a>  
-    <br>
-    <span style="font-size: 0.95em; color: #666;">
-      <em>(This is an affiliate link – if you purchase through it, we may earn a commission at no extra cost to you)</em>
-    </span>
-
+  
 ## :material-dns: Domain Configuration
 
 Configure the following subdomains to point to your server. We strongly recommend using [Cloudflare](https://www.cloudflare.com/) for DNS management and DDoS protection.
