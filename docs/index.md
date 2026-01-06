@@ -80,7 +80,7 @@
 
     ---
 
-    Learn about markdown formatting and documentation standards
+    Learn how to make plugins for shiina
 
 -   :material-web-box: **[Frontend Development](frontend.md)**
 
