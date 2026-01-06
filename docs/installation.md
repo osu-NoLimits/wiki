@@ -1,6 +1,6 @@
 # :material-server: Installation Guide
 
-Welcome to the **osuNoLimits** installation guide! This comprehensive walkthrough will help you set up a production-ready osu! private server using [Shiina-Web](https://github.com/osu-NoLimits/Shiina-Web) and [bancho.py-ex](https://github.com/osu-NoLimits/bancho.py-ex) from the ground up.
+Welcome to the **osuNoLimits** installation guide! This comprehensive walkthrough will help you set up a production-ready osu! private server using [Shiina-Web](https://github.com/osu-NoLimits/Shiina-Web) and [bancho.py-ex](https://github.com/osu-NoLimits/bancho.py-ex) with the [onl-docker](https://github.com/osu-NoLimits/onl-docker) Stack from the ground up.
 
 !!! warning "Prerequisites Checklist"
     Before beginning the installation, please ensure you have:
@@ -270,7 +270,6 @@ nano .env
     |---------|-------------|---------|
     | `BANCHO_SERVER_NAME` | Your server's public display name | `osuNoLimits` |
     | `BANCHO_DISCORD_URL` | Community Discord invite link | `https://discord.gg/yourinvite` |
-    | `BANCHO_SERVER_NAME` | Your server's display name | `osuNoLimits` |
     | `BANCHO_DISCORD_URL` | Your Discord invite link | `https://discord.gg/yourinvite` |
     | `BANCHO_ICON_URL` | In-game menu icon | URL to your icon |
     | `BANCHO_ONCLICK_URL` | Click destination | Your website URL |
@@ -296,7 +295,6 @@ make install
 
 The installer will guide you through the setup process, including:
 
-- :material-database: Database initialization
 - :material-package: Dependency installation
 - :material-cog: Service configuration
 - :material-help-circle: Optional phpMyAdmin setup (prompted during installation)
@@ -325,7 +323,7 @@ make run
 
 ## :material-help-circle: Frequently Asked Questions
 
-Find quick answers to common questions and troubleshooting tips below.
+Find quick answers to common questions and troubleshooting tips below. We do have a [Community Dev Discord](https://discord.gg/Dr79DU9kbD)
 
 ---
 
@@ -373,10 +371,6 @@ Find quick answers to common questions and troubleshooting tips below.
         `donationAmount` represents the base price in your currency. For example, a $10 donation equals 10 months of supporter status.
 
 ??? question "How do I configure automatic anti-cheat bans?"
-    
-    !!! info "Data Requirement"
-        The autoban system requires at least **one week of player data** to function accurately.
-    
     Configure performance point limits to automatically detect and ban suspicious plays:
 
     ```bash
@@ -445,3 +439,9 @@ Find quick answers to common questions and troubleshooting tips below.
     
     !!! tip "Performance Note"
         PP recalculation can be resource-intensive. Consider running during off-peak hours for servers with many players.
+
+---
+
+<div align="center">
+    <p><em>© 2026 Marc Andre Herpers. All rights reserved.</em></p>
+</div>
