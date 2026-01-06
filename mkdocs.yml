@@ -9,7 +9,12 @@ extra_javascript:
 nav:
   - Home: index.md
   - Installation: installation.md
-  - Extending shiina: plugins.md
+  - Plugin Development:
+    - plugins/index.md
+    - Creating Plugins: plugins/creating-plugins.md
+    - Routes: plugins/routes.md
+    - Scheduled Tasks: plugins/cron-tasks.md
+    - Advanced Topics: plugins/advanced.md
   - Theming shiina: theming.md
   - Developing a frontend: frontend.md
 
