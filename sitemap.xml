@@ -24,4 +24,24 @@
          <loc>https://osu-nolimits.github.io/theming/</loc>
          <lastmod>2026-01-06</lastmod>
     </url>
+    <url>
+         <loc>https://osu-nolimits.github.io/plugins/</loc>
+         <lastmod>2026-01-06</lastmod>
+    </url>
+    <url>
+         <loc>https://osu-nolimits.github.io/plugins/advanced/</loc>
+         <lastmod>2026-01-06</lastmod>
+    </url>
+    <url>
+         <loc>https://osu-nolimits.github.io/plugins/creating-plugins/</loc>
+         <lastmod>2026-01-06</lastmod>
+    </url>
+    <url>
+         <loc>https://osu-nolimits.github.io/plugins/cron-tasks/</loc>
+         <lastmod>2026-01-06</lastmod>
+    </url>
+    <url>
+         <loc>https://osu-nolimits.github.io/plugins/routes/</loc>
+         <lastmod>2026-01-06</lastmod>
+    </url>
 </urlset>
