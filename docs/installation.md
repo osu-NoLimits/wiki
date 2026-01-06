@@ -1,22 +1,21 @@
-# :material-server: Installation
+# :material-server: Installation Guide
 
-Welcome to the comprehensive installation guide for **osuNoLimits**. This guide will walk you through setting up [Shiina-Web](https://github.com/osu-NoLimits/Shiina-Web) and [bancho.py-ex](https://github.com/osu-NoLimits/bancho.py-ex) from scratch.
+Welcome to the **osuNoLimits** installation guide! This comprehensive walkthrough will help you set up a production-ready osu! private server using [Shiina-Web](https://github.com/osu-NoLimits/Shiina-Web) and [bancho.py-ex](https://github.com/osu-NoLimits/bancho.py-ex) from the ground up.
 
-
-!!! warning "Prerequisites"
-    Before starting, ensure you have:
+!!! warning "Prerequisites Checklist"
+    Before beginning the installation, please ensure you have:
     
-    - :material-server: A Linux server (Ubuntu 24.04+ recommended)
-    - :material-domain: A domain name with DNS access
-    - :material-shield-check: Basic command-line knowledge
-    - :material-clock: Approximately 30-60 minutes
+    - :material-server: **Linux Server** — Ubuntu 24.04+ or Debian-based distribution recommended
+    - :material-domain: **Domain Name** — with full DNS management access
+    - :material-shield-check: **Technical Knowledge** — comfortable with command-line operations
+    - :material-clock: **Time Allocation** — approximately 20-30 minutes for complete setup
   
 ## :material-dns: Domain Configuration
 
-Configure the following subdomains to point to your server. We strongly recommend using [Cloudflare](https://www.cloudflare.com/) for DNS management and DDoS protection.
+Proper DNS setup is crucial for your server's functionality. Configure the following subdomains to point to your server's IP address. We **strongly recommend** using [Cloudflare](https://www.cloudflare.com/) for robust DNS management and enterprise-grade DDoS protection.
 
-!!! example "Required Subdomains"
-    Create these DNS records pointing to your server's IP:
+!!! example "Required DNS Records"
+    Create the following DNS records, all pointing to your server's IP address:
     
     === "A Records"
         | Subdomain | Purpose | Example |
@@ -38,30 +37,23 @@ Configure the following subdomains to point to your server. We strongly recommen
     === "Example"
         ![Domain Configuration](img/domains.png)
 
-!!! tip "SSL Configuration"
-    You can choose between flexible or strict SSL encryption. For production environments, we recommend **Full (Strict)** SSL mode with valid certificates.
+!!! tip "SSL/TLS Configuration"
+    Choose between flexible or strict SSL encryption based on your security requirements. For production environments, we **strongly recommend Full (Strict)** SSL mode with valid certificates for maximum security.
     
-    📖 [Detailed SSL setup guide](https://github.com/osuAkatsuki/bancho.py/wiki/Post-setup)
+    :material-book-open-variant: [Detailed SSL setup guide](https://github.com/osuAkatsuki/bancho.py/wiki/Post-setup)
 
-!!! note "Version Control Recommendation"
-    Create a GitHub fork of the repositories before proceeding. This allows you to:
+!!! note "Version Control Best Practice"
+    **We highly recommend** forking the repositories to your own GitHub account before proceeding. Benefits include:
     
-    - :material-source-pull: Easily pull updates
-    - :material-pencil: Make custom modifications  
-    - :material-backup-restore: Maintain your configuration
+    - :material-source-pull: **Easy Updates** — seamlessly pull upstream changes
+    - :material-pencil: **Custom Modifications** — maintain your own feature branches  
+    - :material-backup-restore: **Configuration Backup** — preserve your settings across updates
 
-## :material-docker: Installing bancho.py-ex
-
-![Discord](https://img.shields.io/discord/1295422749807743037?label=Discord&link=https%3A%2F%2Fdiscord.gg%2F6DH8bB24p6&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
-![GitHub contributors](https://img.shields.io/github/contributors/osu-NoLimits/bancho.py-ex?label=Contributors&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2Fbancho.py-ex)
-![GitHub License](https://img.shields.io/github/license/osu-NoLimits/Shiina-Web?label=License&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2Fbancho.py-ex)
-![GitHub Created At](https://img.shields.io/github/created-at/osu-NoLimits/bancho.py-ex?label=Created&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2Shiina-Web)
-![Static Badge](https://img.shields.io/badge/available%20-%20Test?label=Documentation&color=1783a3&link=https%3A%2F%2Fosu-nolimits.github.io%2Fwiki%2F)
-![GitHub Repo stars](https://img.shields.io/github/stars/osu-NoLimits/bancho.py-ex)
+## :material-docker: Installing the osuNoLimits Stack
 
 ### :material-package-variant-closed: Docker Installation
 
-Docker is required to run bancho.py-ex. Choose your operating system below:
+Docker is the foundation of the osuNoLimits stack, providing containerized deployment for all services. Select your operating system below to begin installation:
 
 === ":material-ubuntu: Ubuntu"
 
@@ -164,64 +156,9 @@ Docker is required to run bancho.py-ex. Choose your operating system below:
     sudo systemctl enable --now docker
     ```
 
-### :material-web: Nginx Installation
-
-Nginx serves as our web server and reverse proxy. Follow the instructions for your operating system:
-
-=== ":material-ubuntu: Ubuntu & Debian"
-
-    !!! tip "Remove Apache2 (Ubuntu only)"
-        If Apache2 is installed, remove it first to avoid conflicts:
-        
-    ```bash
-    sudo systemctl stop apache2
-    sudo apt remove apache2 apache2-utils apache2-bin apache2.2-common
-    sudo apt autoremove
-    ```
-
-    **Step 1:** Update package list and install Nginx
-    ```bash
-    sudo apt update
-    sudo apt install nginx
-    ```
-
-    **Step 2:** Verify installation
-    ```bash
-    sudo systemctl status nginx
-    ```
-
-    !!! success "Expected Output"
-        You should see `Active: active (running)` in green text.
-
-=== ":material-fedora: Fedora"
-
-    **Step 1:** Update packages and install Nginx
-    ```bash
-    sudo dnf update
-    sudo dnf install nginx
-    ```
-
-    **Step 2:** Start and enable Nginx
-    ```bash
-    sudo systemctl start nginx
-    sudo systemctl enable nginx
-    ```
-
-    **Step 3:** Configure firewall
-    ```bash
-    sudo firewall-cmd --permanent --add-service=http
-    sudo firewall-cmd --permanent --add-service=https
-    sudo firewall-cmd --reload
-    ```
-
-    **Step 4:** Verify installation
-    ```bash
-    sudo systemctl status nginx
-    ```
-
 ### :material-git: Git Installation
 
-Git is required for cloning the repository and managing updates.
+Git is essential for cloning the repository and managing future updates. Follow the instructions for your operating system:
 
 === ":material-ubuntu: Ubuntu & Debian"
 
@@ -269,317 +206,161 @@ Git is required for cloning the repository and managing updates.
 
 ### :material-download: Repository Setup
 
-Clone the bancho.py-ex repository to your server:
+Clone the onl-docker repository to your server to get started:
 
-!!! tip "Use Your Fork"
-    If you created a fork, replace the URL with your fork's URL for easier updates.
+!!! tip "Using Your Fork"
+    If you created a fork earlier, replace the repository URL below with your fork's URL. This makes pulling updates and managing custom changes much easier.
+
+!!! tip "Custom Submodule Configuration"
+    To use your own forked versions of shiina-web and bancho.py-ex, update the URLs in the `.submodules` file within onl-docker.
+
 
 ```bash
-git clone https://github.com/osu-NoLimits/bancho.py-ex.git /home/bancho-py-ex
-cd /home/bancho-py-ex
+git clone https://github.com/osu-NoLimits/onl-docker /home/onl-docker
+cd /home/onl-docker
 ```
 
-### :material-file-cog: Environment Setup
+### :material-file-cog: Environment Configuration
 
-First, create your configuration files from the provided examples:
+Initialize your configuration by creating copies of the example files:
 
 ```bash
 cp .env.example .env
-cp logging.yaml.example logging.yaml
+cp .config/caps.example.json .config/caps.json
+cp .config/customization.yml.example .config/customization.yml
+cp .config/logger.env.example logger.env
 ```
 
-### :material-pencil: Edit Configuration
+### :material-pencil: Configuration Editor
 
-Open the environment file for editing:
+Open the main environment file for editing:
 
 ```bash
 nano .env
 ```
 
-!!! warning "Required Configuration"
-    You **must** configure these essential settings before proceeding:
+!!! warning "Critical Configuration Settings"
+    The following settings are **mandatory** and must be configured before starting the server:
 
-=== ":material-key: Authentication"
+=== ":material-key: Core Settings"
 
     | Setting | Description | Required |
     |---------|-------------|----------|
-    | `OSU_API_KEY` | [Get your osu! API key here](https://osu.ppy.sh/home/account/edit) | ✅ |
-    | `DB_PASS` | Strong database password | ✅ |
-    | `DOMAIN` | Your domain (e.g., `osunolimits.dev`) | ✅ |
+    | `DOMAIN` | Your primary domain (e.g., `osunolimits.dev`) | ✅ |
+    | `DB_PASS` | Strong, unique database password | ✅ |
+    | `BANCHO_DISCORD_URL` | osu! API key — [obtain here](https://osu.ppy.sh/home/account/edit) | ✅ |
+    | `SHIINA_TURNSTILE_KEY` | Cloudflare Turnstile public key — [get yours here](https://dash.cloudflare.com/sign-up?to=/:account/turnstile) | ✅ |
+    | `SHIINA_TURNSTILE_SECRET` | Cloudflare Turnstile private key — [get yours here](https://dash.cloudflare.com/sign-up?to=/:account/turnstile) | ✅ |
+    | `FLEXIBLE` | SSL mode: `true` for flexible, `false` for strict (default: `true`) | ✅ |
+    | `PROTOCOL` | Connection protocol: `https` recommended, use `http` only without Cloudflare (default: `https`) | ✅ |
 
-=== ":material-shield-lock: SSL Settings (Optional)"
+=== ":material-shield-lock: SSL Certificate Paths (Optional)"
 
-    !!! note "Only required for Full/Strict SSL mode"
+    !!! note "Required for Full/Strict SSL Mode Only"
+        Configure these paths only if using Full or Strict SSL encryption:
     
     ```bash
     SSL_CERT_PATH=/path/to/your/fullchain.crt
     SSL_KEY_PATH=/path/to/your/private.key
     ```
 
-=== ":material-palette: Customization (Optional)"
+=== ":material-palette: Branding & Customization (Optional)"
 
     | Setting | Description | Example |
     |---------|-------------|---------|
-    | `SERVER_NAME` | Your server's display name | `osuNoLimits` |
-    | `DISCORD_URL` | Your Discord invite link | `https://discord.gg/yourinvite` |
-    | `MENU_ICON_URL` | In-game menu icon | URL to your icon |
-    | `MENU_ONCLICK_URL` | Click destination | Your website URL |
-    | `SEASONAL_BGS` | Background images | Comma-separated URLs |
+    | `BANCHO_SERVER_NAME` | Your server's public display name | `osuNoLimits` |
+    | `BANCHO_DISCORD_URL` | Community Discord invite link | `https://discord.gg/yourinvite` |
+    | `BANCHO_SERVER_NAME` | Your server's display name | `osuNoLimits` |
+    | `BANCHO_DISCORD_URL` | Your Discord invite link | `https://discord.gg/yourinvite` |
+    | `BANCHO_ICON_URL` | In-game menu icon | URL to your icon |
+    | `BANCHO_ONCLICK_URL` | Click destination | Your website URL |
+    | `BANCHO_BGS` | Background images | Comma-separated URLs |
 
 === ":material-webhook: Webhooks (Optional)"
 
     Configure Discord webhooks for notifications:
     
     ```bash
-    FIRST_PLACES_WEBHOOK=https://discord.com/api/webhooks/...
-    ENABLE_FIRST_PLACES_WEBHOOK=True
-    DISCORD_AUDIT_LOG_WEBHOOK=https://discord.com/api/webhooks/...
+    BANCHO_FIRST_PLACES_WEBHOOK=https://discord.com/api/webhooks/...
+    BANCHO_FIRST_PLACES_WEBHOOK_URL=True
+    BANCHO_AUDIT_LOG_WEBHOOK=https://discord.com/api/webhooks/...
     ```
 
-### :material-web-box: Nginx Configuration
+### :material-web-box: Installation Script
 
-Install the pre-configured nginx setup:
+With your configuration complete, run the automated installation script:
 
 ```bash
-./scripts/install-nginx-config.sh
+make install
 ```
 
-!!! success "Configuration Complete"
-    Your nginx configuration has been automatically set up with the correct proxy settings for all bancho.py-ex endpoints.
+The installer will guide you through the setup process, including:
 
-### :material-hammer-wrench: Build and Start
+- :material-database: Database initialization
+- :material-package: Dependency installation
+- :material-cog: Service configuration
+- :material-help-circle: Optional phpMyAdmin setup (prompted during installation)
 
-With everything configured, build and start the project:
+### :material-hammer-wrench: Launch Your Server
 
+With everything configured, you're ready to start your osuNoLimits server! Choose your preferred launch method:
+
+**Option 1: Detached with Screen** (Recommended for SSH sessions)
 ```bash
-# Build the Docker containers
-make build
+screen -S onl-docker make run
+```
 
-# Start all services
+**Option 2: Detached Docker Compose**
+```bash
+docker compose up -d
+```
+
+**Option 3: Foreground Process**
+```bash
 make run
 ```
 
-!!! tip "Development vs Production"
-    - For **development**: Use `make run` for easier debugging
-    - For **production**: Consider using `make run-bg` or `screen -S bancho make run` to run in background
+!!! success "Server Started!"
+    Your server should now be running. Monitor the logs for any startup errors and verify all services are operational.
 
-### :material-shield-account: Autoban Configuration
+## :material-help-circle: Frequently Asked Questions
 
-Configure performance point limits to prevent cheating:
-
-```bash
-nano caps.json
-```
-
-!!! example "PP Caps Configuration"
-    ```json
-    {
-        "enabled": true,
-        "caps": {
-            "0": 800,    // osu! standard
-            "1": 1000,   // osu! taiko  
-            "2": 900,    // osu! catch
-            "3": 850     // osu! mania
-        }
-    }
-    ```
-
-!!! warning "Important Notes"
-    - Set `"enabled": true` to activate automatic banning
-    - Adjust PP values based on your server's skill level
-    - Monitor logs for any false positives
-
-## :fontawesome-brands-java: Installing Shiina-Web
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/osu-NoLimits/Shiina-Web/maven.yml?label=Tests&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
-![Discord](https://img.shields.io/discord/1295422749807743037?label=Discord&link=https%3A%2F%2Fdiscord.gg%2F6DH8bB24p6&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
-![GitHub contributors](https://img.shields.io/github/contributors/osu-NoLimits/Shiina-Web?label=Contributors&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
-![GitHub License](https://img.shields.io/github/license/osu-NoLimits/Shiina-Web?label=License&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
-![GitHub Created At](https://img.shields.io/github/created-at/osu-NoLimits/Shiina-Web?label=Created&color=1783a3&link=https%3A%2F%2Fgithub.com%2Fosu-NoLimits%2FShiina-Web)
-![Static Badge](https://img.shields.io/badge/available%20-%20Test?label=Documentation&color=1783a3&link=https%3A%2F%2Fosu-nolimits.github.io%2Fwiki%2F)
-![GitHub Repo stars](https://img.shields.io/github/stars/osu-NoLimits/Shiina-Web)
-
-bancho.py-ex should be installed at this step
-
-### :fontawesome-brands-java: Installing Java
-
-=== ":material-ubuntu: Ubuntu"
-
-    ```bash
-    sudo apt install openjdk-21-jdk -y
-    ```
-
-=== ":material-debian: Debian"
-
-    ```bash
-    echo "deb http://deb.debian.org/debian bullseye-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
-    sudo apt update
-
-    # Debian 12
-    sudo apt install openjdk-21-jdk -y
-
-    # Debian 11
-    sudo apt install -t bullseye-backports openjdk-21-jdk -y
-    ```
-
-=== ":material-fedora: Fedora"
-    ```bash
-    sudo dnf install java-21-openjdk-devel -y
-    ```
-
-### :material-download: Repository Setup
-
-Clone the Shiina-Web repository to your server:
-
-!!! tip "Use Your Fork"
-    If you created a fork, replace the URL with your fork's URL for easier updates.
-
-```bash
-git clone https://github.com/osu-NoLimits/Shiina-Web.git /home/Shiina-Web
-cd /home/Shiina-Web
-```
-
-### :fontawesome-solid-sliders: Configuration
-
-```bash
-# Navigate to the config directory
-cd .config
-
-cp .env.example .env && cp customization.yml.example customization.yml && cp logger.env.example logger.env
-
-# Editing customization.yml is pretty obvious (no tutorial here)
-
-nano .env
-```
-
-
-!!! warning "Required Configuration"
-    You **must** configure these essential settings before proceeding:
-
-=== ":material-key: Main"
-
-    | Setting | Description | Required |
-    |---------|-------------|----------|
-    | `TURNSTILE_KEY` | [Get Cloudflare Captcha key here](https://dash.cloudflare.com/sign-up?to=/:account/turnstile) | ✅ |
-    | `TURNSTILE_SECRET` | [Get Cloudflare Captcha key here](https://dash.cloudflare.com/sign-up?to=/:account/turnstile) | ✅ |
-    | `DBPASS` | Your bancho.py-ex DB_PASS | ✅ |
-    | `DOMAIN` | Your domain (def. `https://osunolimits.dev`) | ✅ |
-    | `APIURLPUBLIC` | Your pub api domain (def. `https://api.osunolimits.dev`) | ✅ |
-    | `ASSETSURL` | Your pub assets domain (def. `https://assets.osunolimits.dev`) | ✅ |
-    | `AVATARSRV` | Your pub avatars domain (def. `https://a.osunolimits.dev`) | ✅ |
-    
-
-=== ":material-plus: Optional"
-
-    | Setting | Description | Required |
-    |---------|-------------|----------|
-    | `DOWNLOAD_MARKETPLACE_PLUGIN` | Offers a plugin marketplace (def. `true`) | ❌ |
-    | `APIURL` | Local API Host (Should stay default) | ❌ |
-    | `AVATARFOLDER` | Avatar folder only needs change when installed not like wiki | ❌ |
-
-### :material-hammer-wrench: Build and Start
-
-With everything configured, build and start the project:
-
-```bash
-# Build shiina
-make build
-
-# Start the frontend
-make run
-```
-
-!!! tip "Development vs Production"
-    - For **development**: Use `make run-dev` for easier debugging and hot reloading
-    - For **production**: Consider using `screen -S shiina make run` to run in background
-
-
-# Frequently Asked Questions
-
-Here you'll find answers to the most common questions.
+Find quick answers to common questions and troubleshooting tips below.
 
 ---
 
-## Installation
-
-??? question "How can I use local machine MySQL and Redis?"
-    To use local MySQL and Redis you can create a `docker-compose.override.yml`
-    ```bash
-    cd /home/bancho.py-ex
-    nano docker-compose.override.yml
-    ```
-
-    **File Content:**
-    ```yaml
-    services:
-        bancho:
-            depends_on: []
-            network_mode: host
-            volumes:
-            - /home/bancho.py-ex/.data:/srv/root
-            - .:/srv/root
-            - data:/srv/root/.data
-            environment:
-            - DB_HOST=127.0.0.1
-            - REDIS_HOST=127.0.0.1
-
-        mysql:
-            deploy:
-            replicas: 0
-
-        redis:
-            deploy:
-            replicas: 0
-    ```
-    Now your bancho will use your machines mysql and redis
-    
-    No worries the `docker-compose.override.yml` is in *.gitignore*
-
-??? question "Why are my assets/avatars not showing up?"
-    Fix for Avatar Server (a.your.domain) Returning 404
-
-    If `/var/log/nginx/error.log` reports **permission denied**, run:
-
-    ```bash
-    chown -R www-data:www-data /var/lib/docker/volumes/banchopy-ex_data/_data
-    chown -R www-data:www-data /home/bancho.py-ex/.data
-    chmod +x /var/lib/docker/volumes/banchopy-ex_data
-    chmod +x /var/lib/docker/volumes
-    chmod +x /var/lib/docker
-    ```
-
-    What this does:
-    - Gives **www-data** (the Nginx user) ownership of the `_data` folder, which is stored inside a Docker volume.  
-    - Allows all users on your machine to **browse the bancho.py Docker volume**.  
-    - Allows all users on your machine to **browse the Docker volumes folder**.  
-    - Allows all users on your machine to **browse the Docker folder**.  
-    - *(does not include sub-folders)*  
-
-    Note:
-    If you use **Caddy** instead of Nginx, replace all occurrences of `www-data` with `caddy`.
+### :material-cog-box: Installation & Setup
 
 ??? question "How to setup default avatar?"
-    Nginx is looking in `/home/bancho.py-ex/.data/avatars` for a `default.jpg`
+    Nginx is looking in `/home/onl-docker/.data/bancho/avatars` for a `default.jpg`
 
     Note: 
     It can be possible that you need to reset permissions, help is in the section above
 
 
-??? question "How can I recieve Donations on shiina?"
-    The only provider supported is **kofi**
-    ```bash
-    nano /home/Shiina-Web/data/monetization.json
-    # Set enabled to `true`
-    # Restart shiina
-    nano /home/Shiina-Web/data/monetization/kofi.json
-    ```
+??? question "How can I receive donations through Shiina?"
+    Currently, **Ko-fi** is the only supported payment provider.
 
-    https://ko-fi.com/manage/webhooks?src=sidemenu
+    **Setup Steps:**
 
-    Enter `https://yourdomain.dev/handlekofi`
+    1. Install the free Ko-fi plugin from the marketplace
     
-    On *Advanced* you can get your verification token
-
-    File Content
+    2. Enable monetization:
+    ```bash
+    nano /home/onl-docker/.data/shiina/data/monetization.json
+    # Set enabled to true, then save and restart Shiina
+    ```
+    
+    3. Configure Ko-fi webhook:
+    ```bash
+    nano /home/onl-docker/.data/shiina/data/monetization/kofi.json
+    ```
+    
+    4. Set up webhook at [Ko-fi Webhooks Dashboard](https://ko-fi.com/manage/webhooks?src=sidemenu)
+        - Webhook URL: `https://yourdomain.dev/handlekofi`
+        - Find your verification token under **Advanced** settings
+    
+    **Configuration Example:**
     ```json
     {
         "verificationToken": "your-access-token",
@@ -587,44 +368,80 @@ Here you'll find answers to the most common questions.
         "donationAmount": 1
     }
     ```
-    `donationAmount` is the amount of your currency to pay
+    
+    !!! info "Donation Calculation"
+        `donationAmount` represents the base price in your currency. For example, a $10 donation equals 10 months of supporter status.
 
-    If someones buys for 10$ it would equal to 10 months
----
+??? question "How do I configure automatic anti-cheat bans?"
+    
+    !!! info "Data Requirement"
+        The autoban system requires at least **one week of player data** to function accurately.
+    
+    Configure performance point limits to automatically detect and ban suspicious plays:
 
-## Usage
-
-??? question "Why is my rank graph not showing?"
-    It needs at least a week of data to show
-
-??? question "Can I change code?"
-    Yes but it isn't recommended, it can cause issues updating. Use plugins/themes if possible
----
-
-## Troubleshooting
-
-??? question "Can I see frontend logs?"
-    Shiina keeps logs for 30days and rotates them
     ```bash
-    cd /home/Shiina-Web/logs
+    nano .config/caps.json
     ```
 
-??? question "How can I recalc PP?"
-    For recalc you need to open a shell in the docker container
+    !!! example "Sample PP Caps Configuration"
+        ```json
+        {
+            "enabled": true,
+            "caps": {
+                "0": 800,    // osu! Standard
+                "1": 1000,   // osu! Taiko  
+                "2": 900,    // osu! Catch
+                "3": 850     // osu! Mania
+            }
+        }
+        ```
+
+    !!! warning "Configuration Best Practices"
+        - Set `"enabled": true` to activate the automatic banning system
+        - Adjust PP thresholds based on your server's average skill level
+        - Regularly monitor audit logs for false positives
+        - Consider community feedback when tuning these values
+
+
+---
+
+### :material-application: Usage & Features
+
+??? question "Why isn't my rank graph displaying?"
+    Rank graphs require **at least one week of historical data** before they can be displayed. Be patient while your server collects player statistics.
+
+??? question "Can I modify the source code?"
+    Yes, but direct code modifications are **not recommended** as they can complicate future updates and cause merge conflicts. Instead, use the plugin and theme systems to extend functionality whenever possible.
+---
+
+### :material-wrench: Troubleshooting
+
+??? question "Where can I find frontend logs?"
+    Shiina automatically maintains logs with a **30-day rotation policy**. Access them here:
+    
+    ```bash
+    cd /home/onl-docker/.data/shiina/logs
+    ls -lh  # View available log files
+    ```
+
+??? question "How do I recalculate performance points (PP)?"
+    To recalculate PP for all players, access the bancho container and run the recalculation script:
+    
+    **Step 1:** Find the bancho container ID
     ```bash
     docker ps
-    # Pick the container id that runs bancho
-    docker exec -it yourid sh
-    # now go into tools
-    cd tools/
+    ```
+    
+    **Step 2:** Access the container shell
+    ```bash
+    docker exec -it <container-id> sh
+    ```
+    
+    **Step 3:** Navigate to tools and execute recalculation
+    ```bash
+    cd bancho.py-ex/tools/
     python recalc.py
     ```
-
-??? question "How clear frontend sessions/cache?"
-    ```bash
-    apt install redis-tools # or for your system
-    redis-cli
-    # now you are in redis terminal
-    EVAL "for _,k in ipairs(redis.call('KEYS', 'shiina:*')) do redis.call('DEL', k) end" 0
-    # Now you need to restart shiina to initialize some keys
-    ```
+    
+    !!! tip "Performance Note"
+        PP recalculation can be resource-intensive. Consider running during off-peak hours for servers with many players.
