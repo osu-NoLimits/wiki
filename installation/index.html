@@ -696,7 +696,7 @@
 
 
 <h1 id="installation-guide"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1M9 5h1V3H9zm0 8h1v-2H9zm0 8h1v-2H9zM5 3v2h2V3zm0 8v2h2v-2zm0 8v2h2v-2z"/></svg></span> Installation Guide<a class="headerlink" href="#installation-guide" title="Permanent link">&para;</a></h1>
-<p>Welcome to the <strong>osuNoLimits</strong> installation guide! This comprehensive walkthrough will help you set up a production-ready osu! private server using <a href="https://github.com/osu-NoLimits/Shiina-Web">Shiina-Web</a> and <a href="https://github.com/osu-NoLimits/bancho.py-ex">bancho.py-ex</a> from the ground up.</p>
+<p>Welcome to the <strong>osuNoLimits</strong> installation guide! This comprehensive walkthrough will help you set up a production-ready osu! private server using <a href="https://github.com/osu-NoLimits/Shiina-Web">Shiina-Web</a> and <a href="https://github.com/osu-NoLimits/bancho.py-ex">bancho.py-ex</a> with the <a href="https://github.com/osu-NoLimits/onl-docker">onl-docker</a> Stack from the ground up.</p>
 <div class="admonition warning">
 <p class="admonition-title">Prerequisites Checklist</p>
 <p>Before beginning the installation, please ensure you have:</p>
@@ -1026,11 +1026,6 @@
 <td><code>https://discord.gg/yourinvite</code></td>
 </tr>
 <tr>
-<td><code>BANCHO_SERVER_NAME</code></td>
-<td>Your server's display name</td>
-<td><code>osuNoLimits</code></td>
-</tr>
-<tr>
 <td><code>BANCHO_DISCORD_URL</code></td>
 <td>Your Discord invite link</td>
 <td><code>https://discord.gg/yourinvite</code></td>
@@ -1068,7 +1063,6 @@
 </span></code></pre></div>
 <p>The installer will guide you through the setup process, including:</p>
 <ul>
-<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg></span> Database initialization</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.12 5h13.75l-.94-1h-12zm15.42.23c.29.34.46.77.46 1.27V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6.5c0-.5.17-.93.46-1.27l1.38-1.68C5.12 3.21 5.53 3 6 3h12c.47 0 .88.21 1.15.55zM6 18h6v-3H6z"/></svg></span> Dependency installation</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z"/></svg></span> Service configuration</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"/></svg></span> Optional phpMyAdmin setup (prompted during installation)</li>
@@ -1089,7 +1083,7 @@
 <p>Your server should now be running. Monitor the logs for any startup errors and verify all services are operational.</p>
 </div>
 <h2 id="frequently-asked-questions"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"/></svg></span> Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h2>
-<p>Find quick answers to common questions and troubleshooting tips below.</p>
+<p>Find quick answers to common questions and troubleshooting tips below. We do have a <a href="https://discord.gg/Dr79DU9kbD">Community Dev Discord</a></p>
 <hr />
 <h3 id="installation-setup"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.25 12c0 .23-.02.46-.05.68l1.48 1.16c.13.11.17.29.08.45l-1.4 2.42c-.09.15-.27.21-.43.15l-1.74-.7c-.36.28-.76.51-1.19.69l-.25 1.85c-.03.17-.18.3-.35.3h-2.8c-.17 0-.32-.13-.35-.3L10 16.85c-.44-.18-.83-.41-1.19-.69l-1.74.7c-.16.06-.34 0-.43-.15l-1.4-2.42a.35.35 0 0 1 .08-.45l1.48-1.16c-.03-.22-.05-.45-.05-.68s.02-.46.05-.68l-1.48-1.16a.35.35 0 0 1-.08-.45l1.4-2.42c.09-.16.27-.22.43-.16l1.74.71c.36-.28.75-.52 1.19-.69l.25-1.86c.03-.16.18-.29.35-.29h2.8c.17 0 .32.13.35.29L14 7.15c.43.17.83.41 1.19.69l1.74-.71c.16-.06.34 0 .43.16l1.4 2.42c.09.15.05.34-.08.45l-1.48 1.16c.03.22.05.45.05.68M19 3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-7 7c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg></span> Installation &amp; Setup<a class="headerlink" href="#installation-setup" title="Permanent link">&para;</a></h3>
 <details class="question">
@@ -1139,10 +1133,6 @@ It can be possible that you need to reset permissions, help is in the section ab
 </details>
 <details class="question">
 <summary>How do I configure automatic anti-cheat bans?</summary>
-<div class="admonition info">
-<p class="admonition-title">Data Requirement</p>
-<p>The autoban system requires at least <strong>one week of player data</strong> to function accurately.</p>
-</div>
 <p>Configure performance point limits to automatically detect and ban suspicious plays:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>nano<span class="w"> </span>.config/caps.json
 </span></code></pre></div>
@@ -1206,6 +1196,10 @@ It can be possible that you need to reset permissions, help is in the section ab
 <p>PP recalculation can be resource-intensive. Consider running during off-peak hours for servers with many players.</p>
 </div>
 </details>
+<hr />
+<div align="center">
+    <p><em>© 2026 Marc Andre Herpers. All rights reserved.</em></p>
+</div>
 
 
 
