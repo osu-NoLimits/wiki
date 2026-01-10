@@ -228,7 +228,7 @@ Initialize your configuration by creating copies of the example files:
 cp .env.example .env
 cp .config/caps.example.json .config/caps.json
 cp .config/customization.yml.example .config/customization.yml
-cp .config/logger.env.example logger.env
+cp .config/logger.env.example .config/logger.env
 ```
 
 ### :material-pencil: Configuration Editor
