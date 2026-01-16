@@ -212,7 +212,7 @@ Clone the onl-docker repository to your server to get started:
     If you created a fork earlier, replace the repository URL below with your fork's URL. This makes pulling updates and managing custom changes much easier.
 
 !!! tip "Custom Submodule Configuration"
-    To use your own forked versions of shiina-web and bancho.py-ex, update the URLs in the `.submodules` file within onl-docker.
+    To use your own forked versions of shiina-web and bancho.py-ex, update the URLs in the `.gitmodules` file within onl-docker.
 
 
 ```bash
